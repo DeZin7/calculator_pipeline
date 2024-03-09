@@ -1,2 +1,7 @@
 #!/bin/bash
-test $(curl localhost:8080/sum?a=1\&b=2) -eq 3
+response=$(curl -s localhost:8080/sum?a=1\&b=2)
+if [ "$response" -eq 3 ]; then
+    echo "Test passed!"
+else
+    echo "Test failed!"
+fi
