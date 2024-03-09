@@ -37,5 +37,16 @@ pipeline {
                 sh "docker run -d --rm -p 8765:8080 --name calculator dezin7/calculator"
             }
           }
+          stage("Acceptance test") {
+            steps {
+                sleep 60
+                sh "chmod +x acceptance_test.sh && ./acceptance_test.sh"
+            }
+          }
+    post {
+        always {
+            sh "docker stop calculator"
+        }
+    }
      }
 }
