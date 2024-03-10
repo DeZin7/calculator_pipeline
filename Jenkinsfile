@@ -40,7 +40,7 @@ pipeline {
           stage("Acceptance test") {
             steps {
                 sleep 60
-                sh "test $( http://localhost:8765/sum\?a\=1\&b\=2) -eq 3"
+                sh "test $(curl http://localhost:8765/sum\?a\=1\&b\=2) -eq 3"
             }
           }
      }
