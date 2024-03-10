@@ -40,7 +40,7 @@ pipeline {
           stage("Acceptance test") {
             steps {
                 sleep 60
-                sh "chmod +x acceptance_test.sh && ./acceptance_test.sh"
+                sh "test $( http://localhost:8765/sum\?a\=1\&b\=2) -eq 3"
             }
           }
      }
