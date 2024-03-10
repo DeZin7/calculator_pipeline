@@ -1,9 +1,5 @@
 pipeline { 
-     agent {
-        docker {
-            image 'docker:dind'
-        }
-     }
+     agent any
      stages { 
           stage("Compile") { 
                steps { 
