@@ -24,3 +24,12 @@ The accpetance test in our Jenkins pipeline will be like this:
     5. Jenkins runs the Docker container in the staging environment;
     6. The Docker Host on the staging environment pulls the image from Docker Hub;
     7. Jenkins runs the acceptance test suite against the application running in the staging environment.
+
+The acceptance test will be done by usimng the Cucumber framework. We will do this in three stages:
+    1. Creating acceptance criteria
+    2. Creating step definitions
+    3. Running an automated acceptance test
+
+    1.1. The acceptance criteria was created in the path /src/test/resources/feature/calculator.feature
+
+    2.1. The step definitions were created at /src/test/java/acceptance/StepDefinitions.java
