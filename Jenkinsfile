@@ -29,7 +29,7 @@ pipeline {
           }
           stage("Docker push") {
             steps {
-                sh "docker push  dezin7/calculato:${BUILD_TIMESTAMP}"
+                sh "docker push  dezin7/calculator:${BUILD_TIMESTAMP}"
             }
           }
           stage("Deploy to staging") {
