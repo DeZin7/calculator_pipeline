@@ -32,9 +32,18 @@ pipeline {
                 sh "docker push  dezin7/calculator:${BUILD_TIMESTAMP}"
             }
           }
+
+          stage("Update Version") {
+            steps {
+                sh "sed  -i 's/{{VERSION}}/${BUILD_TIMESTAMP}/g' deployment.yaml"
+            } 
+          }
+
           stage("Deploy to staging") {
             steps {
-                sh "docker run -d --rm -p 8765:8080 --name calculator dezin7/calculator:${BUILD_TIMESTAMP}"
+                    sh "sudo k3s kubectl config use-context staging-calculator"
+                    sh "sudo k3s kubectl apply -f deployment.yaml"
+                    sh "sudo k3s kubectl apply -f service.yaml"
             }
           }
           stage("Acceptance test") {

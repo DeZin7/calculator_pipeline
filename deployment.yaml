@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: calculator
-        image: dezin7/calculator:caching
+        image: dezin7/calculator:{{VERSION}}
         ports:
         - containerPort: 8080
         readinessProbe:
